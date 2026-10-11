@@ -6,7 +6,7 @@
 /*   By: mabani-h <mabani-h@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 12:29:52 by mabani-h          #+#    #+#             */
-/*   Updated: 2026/10/08 16:38:01 by mabani-h         ###   ########.fr       */
+/*   Updated: 2026/10/11 08:25:53 by mabani-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ static void	ft_format(va_list va, char *str, size_t *counter)
 	}
 	else if (*str == '%')
 		ft_print_percent(counter);
+	else
+	{
+		ft_putchar('%', counter);
+		ft_putchar(*str, counter);
+	}
 }
 
 int	ft_printf(char const *str, ...)
@@ -46,7 +51,8 @@ int	ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			ft_format(va, (char *)str, &counter);
+			if (*str)
+				ft_format(va, (char *)str, &counter);
 		}
 		else
 			ft_putchar(*str, &counter);
@@ -54,4 +60,14 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(va);
 	return (counter);
+}
+int	main(void)
+{
+	ft_printf("mkggghk % 46jhjkk\n");
+	printf("----------------------------------\n");
+	//printf("mkggghk% hjl;;kjj");
+	printf("mkggghk %     46jhjkk\n");
+
+	return (0);
+
 }

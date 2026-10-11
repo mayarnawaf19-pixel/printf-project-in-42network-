@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 int		ft_printf(const char *str, ...);
 void	ft_putchar(char c, size_t *counter);
