@@ -30,11 +30,6 @@ static void	ft_format(va_list va, char *str, size_t *counter)
 	}
 	else if (*str == '%')
 		ft_print_percent(counter);
-	else
-	{
-		ft_putchar('%', counter);
-		ft_putchar(*str, counter);
-	}
 }
 
 int	ft_printf(char const *str, ...)
@@ -60,14 +55,4 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(va);
 	return (counter);
-}
-int	main(void)
-{
-	ft_printf("mkggghk % 46jhjkk\n");
-	printf("----------------------------------\n");
-	//printf("mkggghk% hjl;;kjj");
-	printf("mkggghk %     46jhjkk\n");
-
-	return (0);
-
 }
